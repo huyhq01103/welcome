@@ -1,0 +1,290 @@
+clearfix()
+    &:before
+    &:after
+        content ""
+        display table
+    &:after
+        clear both
+    if support-for-ie
+        zoom 1
+.container
+    clearfix()
+    width 1080px
+    height 100%
+    padding 0 15px
+    box-sizing border-box
+    margin 0 auto
+    @media only screen and (min-width: 1400px)
+        width 1280px
+.sliders-wrapper
+    clearfix()
+    height 100vh
+    display flex
+    flex-direction column
+   
+.sliders-header
+    height 120px
+    min-width 1080px
+    box-shadow  0px 4px 12px rgba(0, 0, 0, 0.15)
+    @media only screen and (min-width: 1400px)
+        min-width 1280px
+    .container
+        height 120px
+        display flex
+        justify-content space-between
+        align-items center
+    
+    .slider-block
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+        cursor pointer
+        height 100%
+        min-width 150px
+        width 16.5%
+        font-size 14px
+        transition all .5s
+        border-bottom solid 4px transparent
+        
+        .title
+            font-size 14px
+            line-height 19px
+            margin-top 14px
+            font-weight 600
+        .icon
+            height 32px
+            width 32px
+            background-repeat no-repeat
+            background-size cover
+            -webkit-filter grayscale(100%)
+            filter grayscale(100%)   
+            @media only screen and (min-width: 1400px)
+                height 40px
+                width 40px   
+        .dictionary
+            background-image url('./assets/iconDictionary.svg')
+        .grammar
+            background-image url('./assets/iconGrammar.svg')
+        .pin
+            background-image url('./assets/iconPin.svg')
+        .download
+            background-image url('./assets/iconDownload.svg')
+        .news
+            background-image url('./assets/iconNewtab.svg')
+        .messenger
+            background-image url('./assets/iconMessenger.svg')
+        .mobile
+            background-image url('./assets/mobile.svg')
+        &.active, &:hover
+            border-bottom solid 4px #f58220
+            color #f58220
+            .icon
+                -webkit-filter grayscale(100%)
+                filter grayscale(0)
+                
+.slider
+    display none
+    width 100%
+    -webkit-animation-name zoomIn
+    -webkit-animation-duration 0.5s
+    animation-name zoomIn
+    animation-duration 0.5s
+    height 100%
+    &.active
+        display block
+    h2.title
+        border-left 4px solid #62B35D
+        padding-left 20px  
+        text-transform uppercase 
+        font-weight 300
+        color #212121
+        font-size 24px
+        line-height 32px
+        margin-bottom 20px
+        @media only screen and (min-width: 1400px)
+            margin-bottom 3%
+            font-size 32px
+    .video-container, .viewContent
+        flex-grow 1
+        text-align center
+        height 100%
+        background-position center
+        background-size 80%
+        background-repeat no-repeat
+    .desContent
+        width 40%
+        font-size 18px
+        line-height 1.39em
+        @media only screen and (min-width: 1400px)
+            font-size 20px
+    .description
+        padding-left 24px
+    .phone-input-title
+        padding-left 24px
+        font-size 16px
+        color #62B35D
+        margin 24px 0 16px 0
+    .send-form
+        display flex
+        .input-wrapper
+            display flex
+            margin-left 24px
+            border 1px solid #D2D1CF
+            margin-right 16px
+            border-radius 4px
+            width 204px
+            height 40px
+            align-items center
+            .phone-prefix
+                font-size 14px
+                padding 0 5px 0 20px
+                line-height 40px
+            input
+                height 90%
+                width 70%
+                border  none
+                font-size 14px
+                line-height 20px
+                outline none
+            input::placeholder
+                color #D2D1CF
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button 
+                /* display: none; <- Crashes Chrome on hover */
+                -webkit-appearance: none
+                margin: 0 /* <-- Apparently some margin are still there even though it's hidden */
+            
+
+            input[type=number] 
+                -moz-appearance:textfield; /* Firefox */
+        .sendBtn
+            border none
+            background-color #62B35D
+            border-radius 4px
+            height 42px
+            width 90px
+            font-size 14px
+            line-height 19px
+            color white
+    .success
+        padding-left 24px
+        font-size 14px
+        color  #62B35D
+    .err
+        padding-left 24px
+        font-size 14px
+        color #dd473b
+    .stores
+        display flex
+        padding-left 24px
+        margin-top 16px
+        .app-store
+            height 40px
+            width 40%
+            background-image url('../styles/assets/app-store-badge.svg')
+            background-size contain
+            background-repeat no-repeat
+            cursor pointer
+        .google-play
+            height 40px
+            width 40%
+            background-image url('..\styles\assets\google-play-badge.svg')
+            background-size contain
+            background-repeat no-repeat
+            cursor pointer
+    .bottom-contact
+        display flex
+        padding-left 24px
+        padding-top 24px
+        .qr-code
+            height 80px
+            width 80px
+            background-image url('..\styles\assets\QR_coc_coc.png')
+            background-position center
+            background-repeat no-repeat
+            margin-right 16px
+            background-size 80%
+            border 1px solid #D2D1CF
+        .messenger
+            height 80px
+            width 80px
+            background-image url('..\styles\assets\messenger.svg')
+            background-size contain
+            cursor pointer
+    .slider-content
+        display flex
+        flex-direction row
+        align-items center
+        height 100%
+.sliders 
+    position relative
+    flex-grow 1
+    padding 2% 0
+    box-sizing border-box
+    display flex
+    align-items center
+    min-width 1080px
+    min-height 500px
+    .embed-responsive
+        position relative
+        display block
+        width 90%
+        max-width 700px
+        margin 0 auto
+        padding 0
+        overflow hidden
+
+        &::before
+            display block
+            content ""
+            padding-top 68%
+
+    .embed-responsive-item
+        position absolute
+        top 0
+        bottom 0
+        left 0
+        width 100%
+        height 100%
+        border 0
+    .btnSet
+        margin 25px 0 0 24px
+        min-width 200px
+        border none
+        text-align center
+        font-size 14px
+        line-height 20px
+        color white
+        padding 10px 15px
+        background #62B35D
+        border-radius 4px
+        transition all .5s
+        cursor pointer
+        &:hover
+            background #f58220
+        &:disabled
+            background #f2f2f2
+            color #757575
+    
+/* Fading animation */
+.fade
+    -webkit-animation-name fade
+    -webkit-animation-duration 0.5s
+    animation-name fade
+    animation-duration 0.5s
+
+$keyframe-name = fade
+@keyframes {$keyframe-name}
+  from
+    opacity .3
+  to
+    opacity 1
+
+@keyframes zoomIn
+  from
+    opacity 0
+    transform scale3d(.3, .3, .3)
+
+  50%
+    opacity 1
